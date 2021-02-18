@@ -9,7 +9,13 @@ io.on("connection", (socket) => {
 
     socket.on("disconnect", () => {
         console.log("O seguinte ID desconectou-se: " + socket.id);
-    })
+    });
+
+    socket.on("msg", (data) => {
+        socket.emit("showmsg", data);
+        console.log(data);
+    });
+
 });
 
 
