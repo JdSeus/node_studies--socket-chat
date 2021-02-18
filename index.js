@@ -6,6 +6,10 @@ var io = require("socket.io")(http);
 
 io.on("connection", (socket) => {
     console.log("Socket Conectado!");
+
+    socket.on("disconnect", () => {
+        console.log("O seguinte ID desconectou-se: " + socket.id);
+    })
 });
 
 
